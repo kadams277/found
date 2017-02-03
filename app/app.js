@@ -1,9 +1,16 @@
-// Include the Main React Dependencies
-var React = require("react");
-var ReactDOM = require("react-dom");
+// FRONT-END: React Router
+// Rendering our Router Component with {routes} component; Passing down {browser history}
 
-// Include the main Parent Component
-var Parent = require("./components/Parent");
+// DEPENDENCIES================================================================
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+// Importing all of the routes contained in the {routes} component
+import routes from './routes.js';
 
-// This code here allows us to render our main component (in this case Parent)
-ReactDOM.render(<Parent />, document.getElementById("app"));
+// ENTRY POINT (to application)==================================================
+// Rendering application and mounting to DOM
+ReactDOM.render(
+    <Router history={browserHistory}>{routes}</Router>,
+  document.getElementById('app')
+);

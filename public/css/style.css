@@ -1,0 +1,43 @@
+/* Home Page */
+body {
+	background-image: url("../images/lightpaperfibers_@2X.png")
+}
+
+#logo {
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: -50px;
+}
+
+#tagline {
+	font-family: 'Dosis', sans-serif;
+	font-weight: 600;
+	font-size: 44px;
+	letter-spacing: 1px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#login {
+	background-color: #000000 ;
+}
+
+#find, #post {
+	background-color: #c62828;
+}
+
+#find {
+	margin-right: 8px;
+}
+
+
+/* Media Queries */
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px) {  
+}
+@media (min-width:481px) { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px) { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
