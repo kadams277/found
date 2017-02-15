@@ -22,7 +22,7 @@ body {
 	background-color: #000000 ;
 }
 
-#find, #post {
+#find, #post, #login {
 	background-color: #c62828;
 }
 
@@ -30,6 +30,25 @@ body {
 	margin-right: 8px;
 }
 
+#navbar {
+	background-color: #000000;
+}
+
+#navLogo {
+	font-family: 'Dosis', sans-serif;
+	font-weight: 600;
+	font-size: 33px;
+	letter-spacing: 1px;
+	color: white;
+	margin-left: 15px;
+}
+
+#card1 {
+	width: 10%
+	margin: 10px;
+	margin-left: 15px;
+	float: left;
+}
 
 /* Media Queries */
 

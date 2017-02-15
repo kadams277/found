@@ -43,63 +43,39 @@ app.get("/", function(req, res) {
 
 // This is the route we will send GET requests to retrieve our most recent click data.
 // We will call this route the moment our page gets rendered
-app.get("/api", function(req, res) {
+app.get("/api/animals", function(req, res) {
 
   // This GET request will search for the latest clickCount
-  Click.find({}).exec(function(err, doc) {
+  MissingPet.find({}).exec(function(err, doc) {
 
     if (err) {
-      console.log(err);
+      res.json(err);
     }
     else {
-      res.send(doc);
+      res.json(doc);
     }
   });
 });
 
 // This is the route we will send POST requests to save each click.
 // We will call this route the moment the "click" or "reset" button is pressed.
-app.post("/api", function(req, res) {
-
-  var clickID = req.body.clickID;
-  var clicks = parseInt(req.body.clicks);
-
-  // Note how this route utilizes the findOneAndUpdate function to update the clickCount
-  // { upsert: true } is an optional object we can pass into the findOneAndUpdate method
-  // If included, Mongoose will create a new document matching the description if one is not found
-  Click.findOneAndUpdate({
-    clickID: clickID
-  }, {
-    $set: {
-      clicks: clicks
-    }
-  }, { upsert: true }).exec(function(err) {
-
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send("Updated Click Count!");
-    }
+app.post("/api/postAnimal", function(req, res) {
+  var newAnimal = {
+  userName: req.body.userName,
+  locationCity: req.body.userCity,
+  locationState: req.body.userState,
+  userEmail: req.body.userEmail,
+  additionalInfo: req.body.additionalInfo
+};
+  var animal = new MissingPet(newAnimal)
+  animal.save(function(err, doc){
+    if (err){
+      res.json(err);
+    } else {
+      res.json(doc);
+    };
   });
 });
-
-// -------------------------------------------------
-
-var testDB = {
-  userName: "Kaitlyn",
-  locationCity: "Austin",
-  locationState: "Texas",
-  userEmail: "kadams277@gmail.com",
-  animalPicture: "",
-  animalType: "Dog",
-  animalGender: "Male",
-  animalyColorGrouping: "White",
-  animalSize: "Medium",
-  additionalInfo: "Spins a lot, very friendly. Too friendly."
-};
-
-MissingPet.insertMany(testDB);
 
 
 // Starting our express server

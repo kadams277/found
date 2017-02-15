@@ -30,7 +30,7 @@ var Home = React.createClass({
   // Here we render the function
   render: function() {
     return (
-        <div className="container-fluid">
+        <div  id="test" className="container-fluid">
           {/* Landing Page */}
           <div className= "row">
             <div className= "col s1">
