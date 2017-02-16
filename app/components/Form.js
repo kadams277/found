@@ -1,16 +1,41 @@
 var React = require("react");
+
 var Form = React.createClass({
+getInitialState: function() {
+            return {
+            file: '',
+            imageUrl: '',
+            savedImage: ''
+        }
+    },
+    handleImageChange: function(e){
+        e.preventDefault();
+
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imageUrl: reader.result
+            })
+        }
+        reader.readAsDataURL(file)
+    },
    
     handleCreate: function(event) {
         event.preventDefault();
 
         const creds = {};
+        const profileImage = this.state.imageUrl;
+
         const userName = this.refs.userName.value;
         const userCity = this.refs.userCity.value;
         const userState = this.refs.userState.value;
         const userEmail = this.refs.userEmail.value;
         const additionalInfo = this.refs.additionalInfo.value;
 
+        creds.profileImage = profileImage
         creds.userName = userName;
         creds.userCity = userCity;
         creds.userState = userState;
@@ -61,8 +86,9 @@ var Form = React.createClass({
                     <div>
                         <input type="text" placeholder="Additional Info" ref="additionalInfo" />
                     </div>
+                    <input className="fileInput" type="file" onChange={this.handleImageChange.bind(this)} />
                     <div>
-                        <input type="submit" value="Add Mission" />
+                        <input type="submit" value="Add missing pet" />
                     </div>
                 </form>
             </div>

@@ -21,7 +21,8 @@ var Post = React.createClass({
       userName: creds.userName,       
       userCity: creds.userCity,       
       userState: creds.userState,       
-      userEmail: creds.userEmail,       
+      userEmail: creds.userEmail,     
+      animalPicture: creds.profileImage,
       additionalInfo: creds.additionalInfo   
     }     
     fetch('/api/postAnimal', {      

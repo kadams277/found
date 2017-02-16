@@ -7,6 +7,8 @@ var mongoose = require("mongoose");
 // Require Click schema
 var MissingPet = require("./models/MissingPet");
 
+var path = require("path");
+
 // Create a new express app
 var app = express();
 // Sets an initial port. We'll use this later in our listener
@@ -14,8 +16,8 @@ var PORT = process.env.PORT || 3000;
 
 // Run Morgan for Logging
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb'}));
+app.use(bodyParser.urlencoded({   limit: '50mb',  extended: true,   parameterLimit:50000}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
@@ -41,6 +43,7 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
+
 // This is the route we will send GET requests to retrieve our most recent click data.
 // We will call this route the moment our page gets rendered
 app.get("/api/animals", function(req, res) {
@@ -62,9 +65,10 @@ app.get("/api/animals", function(req, res) {
 app.post("/api/postAnimal", function(req, res) {
   var newAnimal = {
   userName: req.body.userName,
-  locationCity: req.body.userCity,
-  locationState: req.body.userState,
+  userCity: req.body.userCity,
+  userState: req.body.userState,
   userEmail: req.body.userEmail,
+  animalPicture: req.body.animalPicture,
   additionalInfo: req.body.additionalInfo
 };
   var animal = new MissingPet(newAnimal)
@@ -77,6 +81,9 @@ app.post("/api/postAnimal", function(req, res) {
   });
 });
 
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname + "/public/index.html"));
+// });
 
 // Starting our express server
 app.listen(PORT, function() {

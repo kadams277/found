@@ -8,10 +8,10 @@ var MissingPetSchema = new Schema({
   userName: {
     type: String
   },
-  locationCity: {
+  userCity: {
     type: String
   },
-  locationState: {
+  userState: {
     type: String
   },
   userEmail: {
