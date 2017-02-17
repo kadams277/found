@@ -68,8 +68,12 @@ app.post("/api/postAnimal", function(req, res) {
   userCity: req.body.userCity,
   userState: req.body.userState,
   userEmail: req.body.userEmail,
-  animalPicture: req.body.animalPicture,
-  additionalInfo: req.body.additionalInfo
+  animalType: req.body.animalType,
+  animalGender: req.body.animalGender,
+  animalColorGrouping: req.body.animalColorGrouping,
+  animalSize: req.body.animalSize,
+  additionalInfo: req.body.additionalInfo,
+  animalPicture: req.body.animalPicture
 };
   var animal = new MissingPet(newAnimal)
   animal.save(function(err, doc){

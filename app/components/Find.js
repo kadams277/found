@@ -40,19 +40,21 @@ var Find = React.createClass({
                   <img className="activator" src={pet.animalPicture} style={{width: 300, height: 300}}/>
                 </div>
                 <div className="card-content">
-                  <span className="card-title activator grey-text text-darken-4">Card Title<i className="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
+                  <span  id="petTitle" className="card-title activator">{pet.animalGender} {pet.animalType}<i className="material-icons right">more_vert</i></span>
+                  <p><a href="#" id="location">{pet.userCity}, {pet.userState}</a></p>
                 </div>
                 <div className="card-action">
-                  <a href="#">This is a link</a>
+                  <a id="emailLink" href= {"mailto:" + pet.userEmail}>This is my pet!</a>
                 </div>
                 <div className="card-reveal">
-                  <span className="card-title grey-text text-darken-4">Card Title<i className="material-icons right">close</i></span>
-                  <p>{pet.userName}</p>
-                  <p>{pet.userCity}</p>
-                  <p>{pet.userState}</p>
-                  <p>{pet.userEmail}</p>
-                  <p>{pet.additionalInfo}</p>
+                  <span className="card-title grey-text text-darken-4">{pet.animalGender} {pet.animalType}<i className="material-icons right">close</i></span>
+                  <p>Type: {pet.animalType}</p>
+                  <p>Gender: {pet.animalGender}</p>
+                  <p>Main Color Grouping: {pet.animalColorGrouping}</p>
+                  <p>Size: {pet.animalSize}</p>
+                  <p>Notes: {pet.additionalInfo}</p>
+                  <p>Contact Name: {pet.userName}</p>
+                  <p>Contact Email: {pet.userEmail}</p>
                 </div>
               </div>
               )
@@ -65,7 +67,7 @@ var Find = React.createClass({
             {/* Navbar */}
             <nav className="z-depth-0">
               <div  id="navbar" className="nav-wrapper">
-                <a href="#" id="navLogo" className="brand-logo left">FOUND</a>
+                <a href="/" id="navLogo" className="brand-logo left">FOUND</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li><a id="login" className="waves-effect waves-light btn">LOGIN</a></li>
                 </ul>

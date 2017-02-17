@@ -21,7 +21,11 @@ var Post = React.createClass({
       userName: creds.userName,       
       userCity: creds.userCity,       
       userState: creds.userState,       
-      userEmail: creds.userEmail,     
+      userEmail: creds.userEmail, 
+      animalType: creds.animalType,
+      animalGender: creds.animalGender,
+      animalColorGrouping: creds.animalColorGrouping,
+      animalSize: creds.animalSize,    
       animalPicture: creds.profileImage,
       additionalInfo: creds.additionalInfo   
     }     

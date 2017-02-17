@@ -19,6 +19,7 @@
     "morgan": "^1.7.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "react-mailto": "^0.4.0",
     "react-router": "^3.0.2"
   },
   "devDependencies": {
