@@ -84,47 +84,47 @@ getInitialState: function() {
                 <form onSubmit={this.handleCreate.bind(this)}>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="animalType" type="text" className="validate" ref="animalType"/>
+                            <input id="animalType" type="text" className="validate" ref="animalType" required/>
                             <label for="animalType">What kind of animal did you find? Dog or cat?</label>
                         </div>
                         <div className="input-field col s6">
-                            <input id="animalGender" type="text" className="validate" ref="animalGender" />
+                            <input id="animalGender" type="text" className="validate" ref="animalGender" required />
                             <label for="animalGender">Is the animal male or female?</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="animalColor" type="text" className="validate" ref="animalColorGrouping" />
+                            <input id="animalColor" type="text" className="validate" ref="animalColorGrouping" required />
                             <label for="animalColor">What is the animal's main color grouping?</label>
                         </div>
                         <div className="input-field col s6">
-                            <input id="animalSize" type="text" className="validate" ref="animalSize" />
+                            <input id="animalSize" type="text" className="validate" ref="animalSize" required />
                             <label for="animalSize">What size is the animal? Large, medium, or small?</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="userCity" type="text" className="validate" ref="userCity" />
+                            <input id="userCity" type="text" className="validate" ref="userCity" required />
                             <label for="userCity">In what city did you find this animal?</label>
                         </div>
                         <div className="input-field col s6">
-                            <input id="userState" type="text" className="validate" ref="userState" />
+                            <input id="userState" type="text" className="validate" ref="userState" required />
                             <label for="userState">In what state did you find this animal?</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="userName" type="text" className="validate" ref="userName" />
+                            <input id="userName" type="text" className="validate" ref="userName" required />
                             <label for="userName">What is your name?</label>
                         </div>
                         <div className="input-field col s6">
-                            <input id="userEmail" type="text" className="validate" ref="userEmail" />
+                            <input id="userEmail" type="text" className="validate" ref="userEmail" required />
                             <label for="userEmail">What is your email address?</label>
                         </div>
                     </div>
                     <div className="row">
                         <div className="input-field col s6">
-                            <input id="additonalInfo" type="text" className="validate" ref="additionalInfo" />
+                            <input id="additonalInfo" type="text" className="validate" ref="additionalInfo" required />
                             <label for="additionalInfo">Any additional info you'd like to add?</label>
                         </div>
                         <div className="col s6">
@@ -133,8 +133,10 @@ getInitialState: function() {
                                     <span>Upload a picture of the found animal</span>
                                     <input type="file" onChange={this.handleImageChange.bind(this)}/>
                                 </div>
+                                <div className="file-path-wrapper">
+                                    <input className="file-path validate" type="text"/>
+                                </div>
                             </div> 
-                            <input  id="add" className="btn" type="submit" value="Add" />
                         </div>
                     </div>
                     <div className="row">

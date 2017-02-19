@@ -1,21 +1,35 @@
 // Include React
 var React = require("react");
 
+var ReactDOM = require("react-dom")
+
 // Ability to link to other pages
 var {Link} = require('react-router');
+
 
 // Create the Parent Component
 var Find = React.createClass({
 
-  // Here we set a generic state associated with the number of clicks
+  // Here we set a generic state 
   getInitialState: function() {
     return {
-      animals: []
+      animals: [],
+      dropdown: ""
     }
   },
 
-  //  On load display the number of clicks
+  select: function(item){         
+    this.setState({             
+      dropdown: item
+    })     
+  },
+
   componentDidMount: function() {
+    var element = ReactDOM.findDOMNode(this.refs.drop)
+
+    $(document).ready(function() {
+      $(".dropdown-button").dropdown({ hover: false });
+    });
     fetch('/api/animals', {                  
       headers: {        
         'content-type': 'application/json',
@@ -58,6 +72,7 @@ var Find = React.createClass({
                 </div>
               </div>
               )
+        
         })
     }
     return (
@@ -65,14 +80,32 @@ var Find = React.createClass({
           {/* Landing Page */}
 
             {/* Navbar */}
-            <nav className="z-depth-0">
+            {/*<nav className="z-depth-0">
               <div  id="navbar" className="nav-wrapper">
                 <a href="/" id="navLogo" className="brand-logo left">FOUND</a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li><a id="login" className="waves-effect waves-light btn">LOGIN</a></li>
                 </ul>
               </div>
+            </nav>*/}
+
+
+
+            <ul id="dropdown1" className="dropdown-content">
+              <li ref="animal" value="dog" onClick={this.select.bind(null, "dog")}>Dog</li>
+              <li ref="animal" value="cat" onClick={this.select.bind(null, "cat")}>Cat</li>
+            </ul>
+            <nav>
+              <div className="nav-wrapper">
+                <a href="#!" className="brand-logo">Logo</a>
+                <ul className="right hide-on-med-and-down" ref="drop"> 
+                  <li><a className="dropdown-button" data-activates="dropdown1">Animal Type<i className="material-icons right">arrow_drop_down</i></a></li>
+
+                </ul>
+              </div>
             </nav>
+
+
               {renderAnimals()}
               
 
