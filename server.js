@@ -26,7 +26,7 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB configuration
-var db =  process.env.MONGODB_URI ||  process.env.MONGOHQ_URL ||  'mongodb://heroku_f44v5cq1:tpai8i7c1ditmgj82lep1cpqlc@ds157539.mlab.com:57539/heroku_f44v5cq1';
+var db =  process.env.MONGODB_URI ||  'mongodb://heroku_f44v5cq1:tpai8i7c1ditmgj82lep1cpqlc@ds157539.mlab.com:57539/heroku_f44v5cq1';
 
 mongoose.connect(db, function(err,res){   
   if(err){    
