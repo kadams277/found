@@ -7,18 +7,6 @@ module.exports = {
   output: {
     filename: "public/bundle.js"
   },
-  plugins: [
-  new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
-      "window.jQuery": "jquery",
-      "Hammer": "hammerjs/hammer",
-      createDayLabel: "jquery",
-      createWeekdayLabel: "jquery",
-      activateOption: "jquery",
-      leftPosition: "jquery"
-  })
-],
 
   // This section desribes the transformations we will perform
   module: {
