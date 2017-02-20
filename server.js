@@ -26,7 +26,7 @@ app.use(express.static("./public"));
 // -------------------------------------------------
 
 // MongoDB configuration
-var db =  process.env.MONGODB_URI ||  process.env.MONGOHQ_URL ||  'mongodb://localhost/found';
+var db =  process.env.MONGODB_URI  ||  'mongodb://localhost/found';
 
 mongoose.connect(db, function(err,res){   
   if(err){    
