@@ -14,7 +14,7 @@ var Find = React.createClass({
   getInitialState: function() {
     return {
       animals: [],
-      dropdown: ""
+      dropdown: "all"
     }
   },
 
@@ -77,7 +77,7 @@ var Find = React.createClass({
     // }
 
     const filteredAnimals = this.state.animals.filter((pet) =>{ 
-      return this.state.dropdown === "" || pet.animalType === this.state.dropdown 
+      return this.state.dropdown === "all" || pet.animalType.toLowerCase() === this.state.dropdown 
     });
 
     return (
@@ -97,6 +97,7 @@ var Find = React.createClass({
 
 
             <ul id="dropdown1" className="dropdown-content">
+              <li ref="animal" value="all" onClick={this.select.bind(null, "all")}>All</li>
               <li ref="animal" value="dog" onClick={this.select.bind(null, "dog")}>Dog</li>
               <li ref="animal" value="cat" onClick={this.select.bind(null, "cat")}>Cat</li>
             </ul>
