@@ -4,9 +4,6 @@ var React = require("react");
 // Ability to link to other pages
 var {Link} = require('react-router');
 
-// Here we include all of the sub-components
-var Child = require("./Child");
-
 // Requiring our helper for making API calls
 var helpers = require("../utils/helpers");
 

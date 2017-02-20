@@ -25,32 +25,16 @@ app.use(express.static("./public"));
 
 // -------------------------------------------------
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
-
-mongoose.connect("mongodb://heroku_f44v5cq1:tpai8i7c1ditmgj82lep1cpqlc@ds157539.mlab.com:57539/heroku_f44v5cq1");
-var db = mongoose.connection;
-
-db.on("error", function(err) {
-  console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
-
-
-
-
 // MongoDB configuration
-// var db =  process.env.MONGODB_URI ||  process.env.MONGOHQ_URL ||  'mongodb://heroku_f44v5cq1:tpai8i7c1ditmgj82lep1cpqlc@ds157539.mlab.com:57539/heroku_f44v5cq1';
+var db =  process.env.MONGODB_URI ||  process.env.MONGOHQ_URL ||  'mongodb://heroku_f44v5cq1:tpai8i7c1ditmgj82lep1cpqlc@ds157539.mlab.com:57539/heroku_f44v5cq1';
 
-// mongoose.connect(db, function(err,res){   
-//   if(err){    
-//     console.log("Error connection to: " + db + '. ' + err);   
-//   } else {    
-//     console.log("Succeeded connecting to: " + db);  
-//   } 
-// });
+mongoose.connect(db, function(err,res){   
+  if(err){    
+    console.log("Error connection to: " + db + '. ' + err);   
+  } else {    
+    console.log("Succeeded connecting to: " + db);  
+  } 
+});
 
 // -------------------------------------------------
 
