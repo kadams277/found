@@ -5,7 +5,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Require Click schema
-var MissingPet = require("./models/MissingPet");
+var MissingPet = require("./models/missingPet");
 
 var path = require("path");
 
